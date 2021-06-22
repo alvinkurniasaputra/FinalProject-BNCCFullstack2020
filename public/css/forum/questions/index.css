@@ -1,0 +1,10 @@
+.card-top, .card-content{
+    border-left: none;
+    border-right: none;
+    border-top: none;
+    border-bottom-left-radius: 0px;
+}
+.card-title{
+    cursor: pointer;
+}
+

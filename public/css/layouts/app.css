@@ -1,0 +1,35 @@
+header{
+    position: sticky;
+    top:0;
+    z-index: 10;
+}
+.nav-item input[type=text] {
+    border-left: none;
+    border-radius: 0px;
+    padding-left: 0px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+  }
+.form-inline button[type=submit]{
+    color: #cfc8c8;
+    background: #ffffff;
+    border: 1px solid #cfc8c8;
+    width: 35px;
+    height: 38px;
+    border-right: none;
+    margin-right: 0px;
+    padding:0px 0px;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+  }
+.btn-info{
+    color:#39739D;
+    background-color:#E1ECF4;
+}
+.btn-info:hover{
+    background-color: #95c5e7;
+    color:#39739D;
+}
+.navbar-nav{
+    margin-left: 62px;
+}

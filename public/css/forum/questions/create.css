@@ -1,0 +1,15 @@
+h4{
+    margin-left: 135px;
+}
+.card-content{
+    margin-left: 135px;
+
+}
+.myMain{
+    background-color: #eff0f1;
+    background-image: url(https://cdn.sstatic.net/Img/ask/background.svg?v=2e9a8205b368);
+    background-repeat: no-repeat;
+    background-position: right top;
+    background-size: 40rem;
+    height: auto;
+}
