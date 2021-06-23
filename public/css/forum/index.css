@@ -7,7 +7,7 @@
 .card-title{
     cursor: pointer;
 }
-.sidebar li:nth-child(3){
+.sidebar li:nth-child(1){
     background-color: #EFF0F1;
     border-right: 3px solid #f48024;
     font-weight: bold;

@@ -3,7 +3,6 @@ h4{
 }
 .card-content{
     margin-left: 135px;
-
 }
 .myMain{
     background-color: #eff0f1;
@@ -12,4 +11,9 @@ h4{
     background-position: right top;
     background-size: 40rem;
     height: auto;
+}
+.sidebar li:nth-child(1){
+    background-color: #EFF0F1;
+    border-right: 3px solid #f48024;
+    font-weight: bold;
 }

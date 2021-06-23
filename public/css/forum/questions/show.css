@@ -4,4 +4,8 @@
     border-top: none;
     border-bottom: none;
 }
-
+.sidebar li:nth-child(3){
+    background-color: #EFF0F1;
+    border-right: 3px solid #f48024;
+    font-weight: bold;
+}

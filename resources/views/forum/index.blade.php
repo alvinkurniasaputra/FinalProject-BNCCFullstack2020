@@ -1,7 +1,7 @@
 @extends('layouts.appx')
 
 @section('css')
-<link href="{{ asset('css/forum/questions/index.css') }}" rel="stylesheet">
+<link href="{{ asset('css/forum/index.css') }}" rel="stylesheet">
 @endsection
 
 @section('content')
