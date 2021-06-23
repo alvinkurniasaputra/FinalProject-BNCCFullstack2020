@@ -41,7 +41,7 @@
                         <a class="dropdown-item" href="{{url('/home')}}">Home</a>
                         <small class="dropdown-header">PUBLIC</small>
                         <a class="dropdown-item ml-3" href="{{url('/questions')}}">Questions</a>
-                        <a class="dropdown-item ml-3" href="#">Users</a>
+                        <a class="dropdown-item ml-3" href="{{url('/users')}}">Users</a>
                       </div>
                 </div>
 

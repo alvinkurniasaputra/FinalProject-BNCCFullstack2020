@@ -90,7 +90,7 @@
                         <li class="mt-5 mb-3 ml-0"><a href="{{url('/home')}}" class="card-link text-dark pl-2 p-1">Home</a></li>
                         <li class="mt-2 ml-2 text-muted" style="font-size: 12px">PUBLIC</li>
                         <li class="mt-3 ml-4"><a href="{{url('/questions')}}" class="card-link text-dark pl-2 p-1">Questions</a></li>
-                        <li class="mt-3 ml-4"><a href="#" class="card-link text-dark pl-2 p-1">Users</a></li>
+                        <li class="mt-3 ml-4"><a href="{{url('/users')}}" class="card-link text-dark pl-2 p-1">Users</a></li>
                     </ul>
                 </div>
               </div>

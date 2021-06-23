@@ -1,0 +1,24 @@
+.form-inline input[type=text] {
+    border-left: none;
+    border-radius: 0px;
+    padding-left: 0px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+.form-inline button[type=submit]{
+    color: #cfc8c8;
+    background: #ffffff;
+    border: 1px solid #cfc8c8;
+    width: 35px;
+    height: 38px;
+    border-right: none;
+    margin-right: 0px;
+    padding:0px 0px;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+.sidebar li:nth-child(4){
+    background-color: #EFF0F1;
+    border-right: 3px solid #f48024;
+    font-weight: bold;
+}

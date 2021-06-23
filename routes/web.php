@@ -35,6 +35,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::put('/comments/{comment_id}', 'AnswerCommentController@update');
     Route::delete('/comments/{comment_id}', 'AnswerCommentController@destroy');
 });
+Route::get('/users', 'UserController@index');
 Route::get('/questions', 'QuestionController@index');
 Route::get('/questions/{question_id}', 'QuestionController@show');
 
