@@ -27,8 +27,7 @@ class HomeController extends Controller
     public function index()
     {
         $id = Auth::id();
-        $question = Question::where('user_id',$id)->get();
-        $sum = Question::where('user_id',$id)->count();
-        return view('forum.index', compact('question','sum','id'));
+        $question = Question::where('user_id',$id)->orderBy('created_at','desc')->get();
+        return view('forum.index', compact('question','id'));
     }
 }

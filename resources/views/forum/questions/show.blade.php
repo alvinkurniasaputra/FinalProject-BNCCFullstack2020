@@ -8,8 +8,8 @@
 <div class="content">
     <div class="myHeader pt-3 pl-4 pr-4">
             <div class="row">
-                <div class="col-10 pr-0">
-                    <p style="font-size:27px; display: inline">{{$question->title}} @if ($question->close_thread == 1)[closed]@endif</p>
+                <div class="quetitle col-10 pr-2">
+                    <p style="font-size:27px;">{{$question->title}} @if ($question->close_thread == 1)[closed]@endif</p>
                 </div>
                 <div class="col pl-0">
                     <a class="btn btn-primary btn-md" href="{{url('/questions/create')}}">Ask Question</a>
@@ -21,7 +21,7 @@
 
     <section class="pl-4">
             <div class="col-8">
-                <p>{{$question->content}}</p>
+                <p class="quecontent">{{$question->content}}</p>
                 @if ($question->user_id == $id)
                         <a href="{{ url("/questions/$question->id/edit") }}" class="text-muted">Edit</a>&emsp;
                         <form method="POST" id="quedelete" action="{{ url("/questions/$question->id")}}" style="display:inline">
@@ -47,7 +47,7 @@
                         <p style="font-size: 18px; font-weight: bold">{{$answer->count()}} Answer</p>
                     @endif
                     @forelse ($answer as $key => $p)
-                        <p>{{$p->content}}</p>
+                        <p class="anscontent">{{$p->content}}</p>
                         @if ($question->close_thread != 1)
                             @if ($p->user_id == $id)
                                 <a href="{{ url("/answers/$question->id/$p->id/edit") }}" class="text-muted">Edit</a>&emsp;
@@ -72,7 +72,7 @@
                             @endif
                             <div class="pl-4">
                                 <form role="form" method="POST" id="replyedit{{$item->id}}" class="{{$item->content}}" action="{{url("/comments/$item->id")}}" style="display:inline;">
-                                    <p class="mb-0" style="display:inline;">{{$item->content}} - <a href="#">{{$item->user->name}}</a>
+                                    <p class="comcontent mb-0" style="display:inline;">{{$item->content}} - <a href="#">{{$item->user->name}}</a>
                                         <small class="card-text text-muted">asked {{$item->created_at->format('F j \'y')}} at {{$item->created_at->format('H:i')}}</small>&emsp;
                                         @if($item->user_id == $id)
                                             <a href="#" id="edit{{$k}}{{$key}}"  class="replyedit{{$item->id}} delete{{$k}}{{$key}}"  onclick="replyEdit(id)">Edit</a>&emsp;
