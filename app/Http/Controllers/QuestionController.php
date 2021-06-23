@@ -20,7 +20,11 @@ class QuestionController extends Controller
      */
     public function index()
     {
-        $question = Question::orderBy('created_at','desc')->get();
+        $sum = Question::count();
+        if ($sum > 15)
+            $question = Question::orderBy('created_at','desc')->paginate(15);
+        else
+            $question = Question::orderBy('created_at','desc')->paginate($sum);
         $id = Auth::id();
         return view('forum.questions.index', compact('question','id'));
     }

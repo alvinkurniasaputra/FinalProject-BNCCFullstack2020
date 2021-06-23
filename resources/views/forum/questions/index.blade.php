@@ -33,7 +33,8 @@
         @empty
         <p class="mt-5 ml-4">No Question</p>
     @endforelse
-    <div class="mb-5"></div>
+
+    <div class="m-5">{{$question->links()}}</div>
 
 </div>
 

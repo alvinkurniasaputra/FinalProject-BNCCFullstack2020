@@ -18,3 +18,13 @@
     -webkit-box-orient: vertical;
     display: -webkit-box;
 }
+.page-item.active .page-link {
+    z-index: 1;
+    color: #fff;
+    background-color: #F48024;
+    border-color: #F48024;
+}
+.page-item .page-link {
+    z-index: 1;
+    color: #000000;
+}
