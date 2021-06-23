@@ -14,12 +14,20 @@
         </div>
     </div>
     @forelse ($question as $key => $q)
-    <div class="card card-content pt-2 pl-2" style="width: 50rem;">
+    <div class="card card-content" style="width: 50rem;">
         <div class="card-body">
-            <a class="card-title mb-4" href="{{ url('/questions', ['questions' => $q->id] ) }}">{{$q->title}}</a>
-            <div class="card-text quecontent" >{{$q->content}}</div>
-            <small class="card-text text-muted pt-2" style="display: block">asked {{$q->created_at->diffForHumans()}}</small>
-            <a href="#">{{$q->user->name}}</a>
+            <div class="row">
+                <div class="col-1 pt-3 pr-0" style="display: inline">
+                    <label class="mb-0 pl-3">{{$q->answer->count()}}</label>
+                    <small class="text-muted">Answer</small>
+                </div>
+                <div class="col-11">
+                    <a class="card-title mb-4" href="{{ url('/questions', ['questions' => $q->id] ) }}">{{$q->title}}</a>
+                    <p class="card-text quecontent" >{{$q->content}}</p>
+                    <small class="card-text text-muted" style="display: block">asked {{$q->created_at->diffForHumans()}}</small>
+                    <a href="#">{{$q->user->name}}</a>
+                </div>
+            </div>
         </div>
     </div>
         @empty
