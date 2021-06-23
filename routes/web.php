@@ -24,6 +24,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('/questions', 'QuestionController@store');
     Route::put('/questions/{question_id}', 'QuestionController@update');
     Route::delete('/questions/{question_id}', 'QuestionController@destroy');
+    Route::post('/questions/{question_id}', 'QuestionController@closeThread');
 
     Route::post('/answers/{question_id}', 'AnswerController@store');
     Route::get('/answers/{question_id}/{answer_id}/edit', 'AnswerController@edit');

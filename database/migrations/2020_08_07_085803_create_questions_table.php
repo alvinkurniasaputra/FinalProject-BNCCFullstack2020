@@ -17,6 +17,7 @@ class CreateQuestionsTable extends Migration
             $table->bigIncrements('id');
             $table->string('title',100);
             $table->string('content',255);
+            $table->integer('close_thread')->nullable();
 
             $table->unsignedBigInteger('user_id');
             $table->timestamps();

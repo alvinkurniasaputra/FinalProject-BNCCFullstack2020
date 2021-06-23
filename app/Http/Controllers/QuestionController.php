@@ -127,4 +127,9 @@ class QuestionController extends Controller
         return redirect('/questions');
     }
 
+    public function closeThread($id){
+        $question = Question::where('id',$id)->update(["close_thread" => 1]);
+
+        return redirect()->back();
+    }
 }

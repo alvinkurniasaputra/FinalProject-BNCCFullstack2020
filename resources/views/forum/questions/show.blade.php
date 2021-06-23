@@ -9,7 +9,7 @@
     <div class="myHeader pt-3 pl-4 pr-4">
             <div class="row">
                 <div class="col-10 pr-0">
-                    <p style="font-size:27px; display: inline">{{$question->title}}</p>
+                    <p style="font-size:27px; display: inline">{{$question->title}} @if ($question->close_thread == 1)[closed]@endif</p>
                 </div>
                 <div class="col pl-0">
                     <a class="btn btn-primary btn-md" href="{{url('/questions/create')}}">Ask Question</a>
@@ -23,12 +23,18 @@
             <div class="col-8">
                 <p>{{$question->content}}</p>
                 @if ($question->user_id == $id)
-                    <a href="{{ url("/questions/$question->id/edit") }}" class="text-muted">Edit</a>&emsp;
-                    <form method="POST" id="quedelete" action="{{ url("/questions/$question->id")}}" style="display:inline">
-                        @csrf
-                        @method('DELETE')
-                        <a href="#" class="text-muted" onclick="queDelete()">Delete</a>
-                    </form>
+                        <a href="{{ url("/questions/$question->id/edit") }}" class="text-muted">Edit</a>&emsp;
+                        <form method="POST" id="quedelete" action="{{ url("/questions/$question->id")}}" style="display:inline">
+                            @csrf
+                            @method('DELETE')
+                            <a href="#" class="text-muted" onclick="queDelete()">Delete</a>
+                        </form>&emsp;
+                    @if ($question->close_thread != 1)
+                        <form method="POST" id="closethread" action="{{url("/questions/$question->id")}}" style="display:inline">
+                            @csrf
+                            <a href="#" class="text-muted" onclick="closeThread()">Close Thread</a>
+                        </form>
+                    @endif
                 @endif
                 <div style="overflow: auto" class="mb-5">
                     <div class="user-info p-2" style="background-color: #E1ECF4; width:200px; float:right;" >
@@ -42,13 +48,15 @@
                     @endif
                     @forelse ($answer as $key => $p)
                         <p>{{$p->content}}</p>
-                        @if ($p->user_id == $id)
-                            <a href="{{ url("/answers/$question->id/$p->id/edit") }}" class="text-muted">Edit</a>&emsp;
-                            <form method="POST" id="ansdelete{{$p->id}}" action="{{ url("/answers/$p->id") }}" style="display:inline">
-                                @csrf
-                                @method('DELETE')
-                                <a href="#" id="ans{{$key}}" class="ansdelete{{$p->id}} text-muted" onclick="ansDelete(id)">Delete</a>
-                            </form>
+                        @if ($question->close_thread != 1)
+                            @if ($p->user_id == $id)
+                                <a href="{{ url("/answers/$question->id/$p->id/edit") }}" class="text-muted">Edit</a>&emsp;
+                                <form method="POST" id="ansdelete{{$p->id}}" action="{{ url("/answers/$p->id") }}" style="display:inline">
+                                    @csrf
+                                    @method('DELETE')
+                                    <a href="#" id="ans{{$key}}" class="ansdelete{{$p->id}} text-muted" onclick="ansDelete(id)">Delete</a>
+                                </form>
+                            @endif
                         @endif
                         <div class="mb-2" style="overflow: auto">
                             <div class="user-info p-2" style="width:200px; float:right;" >
@@ -92,26 +100,35 @@
                     @endforelse
                 </div>
 
-                <div class="myAnswer mb-5">
-                    <p style="font-size: 20px">Your Answer</p>
-                    <form role="form" method="POST" action="{{url("/answers/$question->id")}}">
-                        @csrf
-                        <div class="form-group">
-                            <textarea class="form-control @error('ans_content') is-invalid @enderror" id="ans_content" name="ans_content" autocomplete="off" rows="10" cols="30" required @empty($id)disabled @endempty></textarea>
-                            @error('ans_content')
-                                <div class="invalid-feedback">{{ $message }}</div>
-                            @enderror
-                        </div>
-                        <button type="submit" class="btn btn-primary">Post Your Answer</button>
-                        @empty($id)
-                            <p class="mt-4" style="font-size: 20px">Please Sign Up or <a href="{{ route('login') }}">Login</a> to answer the question</p>
-                        @endempty
-                    </form>
-                </div>
+                @if ($question->close_thread != 1)
+                    <div class="myAnswer mb-5">
+                        <p style="font-size: 20px">Your Answer</p>
+                        <form role="form" method="POST" action="{{url("/answers/$question->id")}}">
+                            @csrf
+                            <div class="form-group">
+                                <textarea class="form-control @error('ans_content') is-invalid @enderror" id="ans_content" name="ans_content" autocomplete="off" rows="10" cols="30" required @empty($id)disabled @endempty></textarea>
+                                @error('ans_content')
+                                    <div class="invalid-feedback">{{ $message }}</div>
+                                @enderror
+                            </div>
+                            <button type="submit" class="btn btn-primary">Post Your Answer</button>
+                            @empty($id)
+                                <p class="mt-4" style="font-size: 20px">Please Sign Up or <a href="{{ route('login') }}">Login</a> to answer the question</p>
+                            @endempty
+                        </form>
+                    </div>
+                @else
+                    <div class="mb-5"></div>
+                @endif
             </div>
     </section>
 </div>
 <script>
+    function closeThread(){
+    event.preventDefault();
+    document.getElementById('closethread').submit();
+}
+
     function replyDelete(d){
     event.preventDefault();
     let res = document.getElementById(d).className;
@@ -130,7 +147,7 @@
     @method('PUT')
     <div class="row">
         <div class="col-10">
-            <textarea id="content_edit" class="form-control @error('content_edit') is-invalid @enderror" name="content_edit" minlength="15" rows="4" cols="50" required>${content}</textarea>
+            <textarea id="content_edit" class="form-control @error('content_edit') is-invalid @enderror" name="content_edit" minlength="15" rows="4" required>${content}</textarea>
             @error('content_edit')
                 <div class="invalid-feedback">{{ $message }}</div>
             @enderror
@@ -149,14 +166,14 @@
         @csrf
         <hr class="my-2">
         <div class="row">
-            <div class="col-10">
+            <div style="width:38rem; display:inline-block" class="px-3">
                 <textarea id="content_reply" class="form-control @error('content_reply') is-invalid @enderror" name="content_reply" minlength="15" rows="3" placeholder="Use comments to reply to other users. If you are adding new information, edit your post instead of commenting." required></textarea>
                 @error('content_reply')
                     <div class="invalid-feedback">{{ $message }}</div>
                 @enderror
             </div>
-            <div class="col pl-0">
-                <button type="submit" class="mt-2 btn btn-primary btn-sm">Add comment</button>
+            <div>
+                <button type="submit" class="mt-2 btn btn-primary">Add comment</button>
             </div>
         </div>
         <small class="text-muted">Enter at least 15 characters</small>
