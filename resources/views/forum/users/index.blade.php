@@ -13,7 +13,7 @@
     </form>
     <div class="col-9" id="myDiv">
         @foreach ($user as $item)
-            <p class="col-3" style="display: inline-block"><a href="#">{{$item->name}}</a></p>
+            <p class="col-3" style="display: inline-block"><a href="{{ url("/users/$item->id") }}">{{$item->name}}</a></p>
         @endforeach
     </div>
 

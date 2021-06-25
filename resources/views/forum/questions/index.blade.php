@@ -25,7 +25,7 @@
                     <a class="card-title mb-4" href="{{ url('/questions', ['questions' => $q->id] ) }}">{{$q->title}}</a>
                     <p class="card-text quecontent" >{{$q->content}}</p>
                     <small class="card-text text-muted" style="display: block">asked {{$q->created_at->diffForHumans()}}</small>
-                    <a href="#">{{$q->user->name}}</a>
+                    <a href="/users/{{$q->user->id}}">{{$q->user->name}}</a>
                 </div>
             </div>
         </div>

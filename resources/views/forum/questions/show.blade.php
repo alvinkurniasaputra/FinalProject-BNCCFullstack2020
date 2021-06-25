@@ -24,7 +24,7 @@
                 <p class="quecontent">{{$question->content}}</p>
                 @if ($question->user_id == $id)
                         <a href="{{ url("/questions/$question->id/edit") }}" class="text-muted">Edit</a>&emsp;
-                        <form method="POST" id="quedelete" action="{{ url("/questions/$question->id")}}" style="display:inline">
+                        <form method="POST" id="quedelete" action="{{url("/questions/$question->id")}}" style="display:inline">
                             @csrf
                             @method('DELETE')
                             <a href="#" class="text-muted" onclick="queDelete()">Delete</a>
@@ -37,9 +37,9 @@
                     @endif
                 @endif
                 <div style="overflow: auto" class="mb-5">
-                    <div class="user-info p-2" style="background-color: #E1ECF4; width:200px; float:right;" >
+                    <div class="user-info p-2" style="background-color: #E1ECF4; width:200px; float:right;">
                         <small class="card-text text-muted" style="display: block">asked {{$question->created_at->format('F j \'y')}} at {{$question->created_at->format('H:i')}}</small>
-                        <a href="#">{{$question->user->name}}</a>
+                        <a href="/users/{{$question->user->id}}">{{$question->user->name}}</a>
                     </div>
                 </div>
                 <div>
@@ -61,7 +61,7 @@
                         <div class="mb-2" style="overflow: auto">
                             <div class="user-info p-2" style="width:200px; float:right;" >
                                 <small class="card-text text-muted" style="display: block">asked {{$p->created_at->format('F j \'y')}} at {{$p->created_at->format('H:i')}}</small>
-                                <a href="#">{{$p->user->name}}</a>
+                                <a href="/users/{{$p->user->id}}">{{$p->user->name}}</a>
                             </div>
                         </div>
 
@@ -72,7 +72,7 @@
                             @endif
                             <div class="pl-4">
                                 <form role="form" method="POST" id="replyedit{{$item->id}}" class="{{$item->content}}" action="{{url("/comments/$item->id")}}" style="display:inline;">
-                                    <p class="comcontent mb-0" style="display:inline;">{{$item->content}} - <a href="#">{{$item->user->name}}</a>
+                                    <p class="comcontent mb-0" style="display:inline;">{{$item->content}} - <a href="/users/{{$item->user->id}}">{{$item->user->name}}</a>
                                         <small class="card-text text-muted">asked {{$item->created_at->format('F j \'y')}} at {{$item->created_at->format('H:i')}}</small>&emsp;
                                         @if($item->user_id == $id)
                                             <a href="#" id="edit{{$k}}{{$key}}"  class="replyedit{{$item->id}} delete{{$k}}{{$key}}"  onclick="replyEdit(id)">Edit</a>&emsp;
@@ -80,13 +80,13 @@
                                     </p>
                                 </form>
                                 @if($item->user_id == $id)
-                                    <form method="POST" id="replydelete{{$item->id}}" action="{{url("/comments/$item->id")}}"  style="display:inline;">
+                                    <form method="POST" id="replydelete{{$item->id}}" action="{{url("/comments/$item->id")}}" style="display:inline;">
                                         @csrf
                                         @method('DELETE')
                                         <a style="color:red;" href="#" id="delete{{$k}}{{$key}}" class="replydelete{{$item->id}}" onclick="replyDelete(id)">Delete</a>
                                     </form>
                             </div>
-                            @endif
+                                 @endif
                             <hr class="my-1">
                         </div>
                         @endforeach

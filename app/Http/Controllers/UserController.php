@@ -50,7 +50,9 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        //
+        $user = User::find($id);
+        $id = Auth::id();
+        return view('forum.users.show', compact('user','id'));
     }
 
     /**
@@ -61,7 +63,8 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        //
+        $user = User::where('id',$id)->first();
+        return view('forum.users.edit', compact('user'));
     }
 
     /**
@@ -73,7 +76,8 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $user = User::where('id',$id)->update(["name" => $request["name"],"location" => $request["location"],"title" => $request["title"],"about_me" => $request["about_me"]]);
+        return response(true,200);
     }
 
     /**
