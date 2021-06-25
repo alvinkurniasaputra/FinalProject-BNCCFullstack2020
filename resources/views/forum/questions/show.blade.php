@@ -85,8 +85,8 @@
                                         @method('DELETE')
                                         <a style="color:red;" href="#" id="delete{{$k}}{{$key}}" class="replydelete{{$item->id}}" onclick="replyDelete(id)">Delete</a>
                                     </form>
+                                @endif
                             </div>
-                                 @endif
                             <hr class="my-1">
                         </div>
                         @endforeach

@@ -23,7 +23,7 @@
                 <div class="form-group">
                     <h5 for="content">Body</h5>
                     <label for="content">Include all the information someone would need to answer your question</label>
-                    <textarea class="form-control @error('content') is-invalid @enderror" id="content" name="content" placeholder="Body" autocomplete="off" rows="10" cols="30" required>{{old('content') }}</textarea>
+                    <textarea class="form-control @error('content') is-invalid @enderror" id="content" name="content" placeholder="Body" autocomplete="off" rows="10" cols="30" required>{{old('content')}}</textarea>
                     @error('content')
                         <div class="invalid-feedback">{{ $message }}</div>
                     @enderror

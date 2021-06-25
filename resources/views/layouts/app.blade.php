@@ -37,11 +37,11 @@
                     <a class="nav-link" href="#" id="navbardrop" data-toggle="dropdown">
                         <span class="navbar-toggler-icon"></span>
                       </a>
-                      <div class="dropdown-menu">
+                      <div class="dropdown-menu" style="overflow:hidden">
                         <a class="dropdown-item" href="{{url('/home')}}">Home</a>
                         <small class="dropdown-header">PUBLIC</small>
-                        <a class="dropdown-item ml-3" href="{{url('/questions')}}">Questions</a>
-                        <a class="dropdown-item ml-3" href="{{url('/users')}}">Users</a>
+                        <a class="dropdown-item ml-3" style="overflow:hidden" href="{{url('/questions')}}">Questions</a>
+                        <a class="dropdown-item ml-3" style="overflow:hidden" href="{{url('/users')}}">Users</a>
                       </div>
                 </div>
 
@@ -57,7 +57,6 @@
                                     <input class="form-control" type="text" autocomplete="off" maxlength="240" size="60" placeholder="Search..." aria-label="Search">
                                 </form>
                             </li>
-
                         </ul>
 
                         <!-- Right Side Of Navbar -->
