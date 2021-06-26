@@ -132,8 +132,9 @@
     function replyDelete(d){
     event.preventDefault();
     let res = document.getElementById(d).className;
-    console.log(res)
-    document.getElementById(res).submit();
+    if (confirm("Really delete this comment?")) {
+        document.getElementById(res).submit();
+    }
 }
 
     function replyEdit(c){
@@ -182,13 +183,17 @@
 
     function queDelete(){
     event.preventDefault();
-    document.getElementById('quedelete').submit();
+    if (confirm("Delete this post?")) {
+        document.getElementById('quedelete').submit();
+    }
 }
 
     function ansDelete(a){
     event.preventDefault();
     let res = document.getElementById(a).className.split(" ")[0];
-    document.getElementById(res).submit();
+    if (confirm("Delete this post?")) {
+        document.getElementById(res).submit();
+    }
 }
 </script>
 
