@@ -31,9 +31,13 @@ Route::group(['middleware' => 'auth'], function () {
     Route::put('/answers/{question_id}/{answer_id}', 'AnswerController@update');
     Route::delete('/answers/{answer_id}', 'AnswerController@destroy');
 
-    Route::post('/comments/{answer_id}', 'AnswerCommentController@store');
-    Route::put('/comments/{comment_id}', 'AnswerCommentController@update');
-    Route::delete('/comments/{comment_id}', 'AnswerCommentController@destroy');
+    Route::post('/anscomments/{answer_id}', 'AnswerCommentController@store');
+    Route::put('/anscomments/{comment_id}', 'AnswerCommentController@update');
+    Route::delete('/anscomments/{comment_id}', 'AnswerCommentController@destroy');
+
+    Route::post('/quecomments/{question_id}', 'QuestionCommentController@store');
+    Route::put('/quecomments/{comment_id}', 'QuestionCommentController@update');
+    Route::delete('/quecomments/{comment_id}', 'QuestionCommentController@destroy');
 });
 Route::get('/users', 'UserController@index');
 Route::get('/users/{user_id}', 'UserController@show');

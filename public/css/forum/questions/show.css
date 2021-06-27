@@ -12,3 +12,6 @@
 .quetitle, .quecontent, .anscontent, .comcontent{
     word-wrap: break-word;
 }
+form, a.text-muted{
+    font-size:14px;
+}

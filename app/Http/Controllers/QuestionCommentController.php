@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\AnswerComment;
+use App\QuestionComment;
 use Illuminate\Http\Request;
 
-class AnswerCommentController extends Controller
+class QuestionCommentController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -36,15 +36,15 @@ class AnswerCommentController extends Controller
     public function store($id, Request $request)
     {
         $validatedData = $request->validate([
-            'answer_reply' => 'required|min:15|max:255'],
-            ['answer_reply.required' => 'The comment field is required.',
-            'answer_reply.min' => 'The comment must be at least 15 characters.',
-            'answer_reply.max' => 'The comment may not be greater than 255 characters.'
+            'question_reply' => 'required|min:15|max:255'],
+            ['question_reply.required' => 'The comment field is required.',
+            'question_reply.min' => 'The comment must be at least 15 characters.',
+            'question_reply.max' => 'The comment may not be greater than 255 characters.'
         ]);
 
-        $comment = new AnswerComment;
-        $comment->content = $request->answer_reply;
-        $comment->answer_id = $id;
+        $comment = new QuestionComment;
+        $comment->content = $request->question_reply;
+        $comment->question_id = $id;
         $comment->user_id = $request->user()->id;
         $res = $comment->save();
 
@@ -83,13 +83,13 @@ class AnswerCommentController extends Controller
     public function update(Request $request, $id)
     {
         $validatedData = $request->validate([
-            'edit_reply_answer' => 'required|min:15|max:255'],
-            ['edit_reply_answer.required' => 'The comment field is required.',
-            'edit_reply_answer.min' => 'The comment must be at least 15 characters.',
-            'edit_reply_answer.max' => 'The comment may not be greater than 255 characters.'
+            'edit_reply_question' => 'required|min:15|max:255'],
+            ['edit_reply_question.required' => 'The comment field is required.',
+            'edit_reply_question.min' => 'The comment must be at least 15 characters.',
+            'edit_reply_question.max' => 'The comment may not be greater than 255 characters.'
         ]);
 
-        $answer = AnswerComment::where('id',$id)->update(["content" => $request["edit_reply_answer"]]);
+        $question = QuestionComment::where('id',$id)->update(["content" => $request["edit_reply_question"]]);
 
         return redirect()->back();
     }
@@ -102,7 +102,7 @@ class AnswerCommentController extends Controller
      */
     public function destroy($id)
     {
-        $comment = AnswerComment::find($id)->delete();
+        $comment = QuestionComment::find($id)->delete();
 
         return redirect()->back();
     }
