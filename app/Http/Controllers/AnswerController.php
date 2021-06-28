@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 
 use App\Answer;
 use App\Question;
@@ -77,7 +78,12 @@ class AnswerController extends Controller
     {
         $question = Question::where('id',$idp)->first();
         $answer = Answer::where('id',$idj)->first();
+
+        if($answer->user_id == Auth::id())
         return view('forum.answers.edit', compact('question','answer'));
+
+        else
+        return redirect("/questions/$idp");
     }
 
     /**

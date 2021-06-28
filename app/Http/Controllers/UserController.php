@@ -66,8 +66,13 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        $user = User::where('id',$id)->first();
-        return view('forum.users.edit', compact('user'));
+        if(Auth::id() == $id){
+            $user = User::where('id',$id)->first();
+            return view('forum.users.edit', compact('user'));
+        }
+        else{
+            return redirect("/users/$id");
+        }
     }
 
     /**

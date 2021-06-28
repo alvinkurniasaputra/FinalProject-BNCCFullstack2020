@@ -89,7 +89,12 @@ class QuestionController extends Controller
     public function edit($id)
     {
         $question = Question::where('id',$id)->first();
+
+        if($question->user_id == Auth::id())
         return view('forum.questions.edit', compact('question'));
+
+        else
+        return redirect(url("/questions/$id"));
     }
 
     /**
