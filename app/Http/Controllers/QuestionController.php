@@ -131,8 +131,10 @@ class QuestionController extends Controller
         foreach ($comment as $key => $item) {
             $item->answerComment()->delete();
         }
-        $answer = Question::find($id)->answer()->delete();
-        $question = Question::where('id',$id)->delete();
+        Question::find($id)->questionComment()->delete();
+        Question::find($id)->answer()->delete();
+        Question::where('id',$id)->delete();
+
         return redirect('/questions');
     }
 
