@@ -67,7 +67,8 @@
                     @enderror
                 </div>
                 <div id="result"></div>
-                <button type="submit" class="btn btn-primary">Save profile</button>
+                <button type="submit" class="btn btn-primary mr-4">Save profile</button>
+                <a href="{{ url("/users/$user->id") }}">cancel</a>
             </div>
         </form>
     </div>

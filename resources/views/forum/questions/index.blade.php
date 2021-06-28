@@ -22,7 +22,7 @@
                     <small class="text-muted">Answer</small>
                 </div>
                 <div class="col-11">
-                    <a class="card-title mb-4" href="{{ url('/questions', ['questions' => $q->id] ) }}">{{$q->title}}</a>
+                    <a class="card-title mb-4" href="{{ url('/questions', ['questions' => $q->id] ) }}">{{$q->title}} @if ($q->close_thread == 1)[closed]@endif</a>
                     <p class="card-text quecontent" >{{$q->content}}</p>
                     <div class="user-info" style="float: right; margin-right: 25px;">
                         <small class="card-text text-muted" style="display: block">asked {{$q->created_at->diffForHumans()}}</small>

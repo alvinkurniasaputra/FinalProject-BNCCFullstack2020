@@ -163,7 +163,9 @@
 <script>
     function closeThread(){
     event.preventDefault();
-    document.getElementById('closethread').submit();
+    if (confirm("Close this thread?")) {
+        document.getElementById('closethread').submit();
+    }
 }
 
     function deleteReplyAnswer(a){

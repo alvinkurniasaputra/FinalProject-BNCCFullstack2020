@@ -1,6 +1,6 @@
 header{
     position: sticky;
-    top:0;
+    top: 0;
     z-index: 10;
 }
 .nav-item input[type=text] {
@@ -18,25 +18,25 @@ header{
     height: 38px;
     border-right: none;
     margin-right: 0px;
-    padding:0px 0px;
+    padding: 0px 0px;
     border-top-left-radius: 5px;
     border-bottom-left-radius: 5px;
 }
 .btn-info{
-    color:#39739D;
-    background-color:#E1ECF4;
+    color: #39739D;
+    background-color: #E1ECF4;
 }
 .btn-info:hover{
     background-color: #95c5e7;
-    color:#39739D;
+    color: #39739D;
 }
 aside{
     padding-bottom: 100%;
     position: fixed;
     overflow-x: visible;
     display: block;
-    top:0;
-    left:0;
+    top: 0;
+    left: 0;
 }
 ul{
     list-style-type: none;

@@ -16,7 +16,7 @@
                 @error('content')
                     <div class="invalid-feedback">{{ $message }}</div>
                 @enderror
-                <p>{{$answer->content}}</p>
+                <p style="word-wrap: break-word">{{$answer->content}}</p>
             </div>
             <button type="submit" class="btn btn-primary">Save edits</button>
         </form>

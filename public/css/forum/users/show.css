@@ -5,8 +5,8 @@
 }
 .myHeader a:nth-child(1){
     background-color: #F48024;
-    border:none;
-    border-radius:50px;
+    border: none;
+    border-radius: 50px;
     font-size: 15px;
 }
 .myHeader a:nth-child(2){
@@ -17,7 +17,7 @@
     border-radius:50px;
 }
 .quecontent, .anscontent{
-    display:block;
+    display: block;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;

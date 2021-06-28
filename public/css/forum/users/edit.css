@@ -5,8 +5,8 @@
 }
 .myHeader a:nth-child(2){
     background-color: #F48024;
-    border:none;
-    border-radius:50px;
+    border: none;
+    border-radius: 50px;
     font-size: 15px;
 }
 .myHeader a:nth-child(1){
@@ -30,7 +30,7 @@ h5{
     vertical-align: middle;
 }
 .bi-check{
-    color:green;
+    color: green;
 }
 .photo-profile{
     width: 164px;
