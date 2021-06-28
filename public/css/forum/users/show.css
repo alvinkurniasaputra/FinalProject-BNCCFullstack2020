@@ -22,3 +22,10 @@
     overflow: hidden;
     text-overflow: ellipsis;
 }
+.photo-profile{
+    width: 164px;
+    height: 164px;
+    float: left;
+    margin-right: 25px;
+    border-radius: 3px;
+}

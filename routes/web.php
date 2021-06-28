@@ -43,6 +43,7 @@ Route::get('/users', 'UserController@index');
 Route::get('/users/{user_id}', 'UserController@show');
 Route::get('/users/{user_id}/edit', 'UserController@edit');
 Route::post('/users/{user_id}', 'UserController@update');
+Route::post('/users/{user_id}/photo', 'UserController@update_photo');
 
 Route::get('/questions', 'QuestionController@index');
 Route::get('/questions/{question_id}', 'QuestionController@show');

@@ -22,3 +22,9 @@
     border-right: 3px solid #f48024;
     font-weight: bold;
 }
+.photo-profile{
+    width: 48px;
+    height: 48px;
+    margin-right: 5px;
+    border-radius: 3px;
+}

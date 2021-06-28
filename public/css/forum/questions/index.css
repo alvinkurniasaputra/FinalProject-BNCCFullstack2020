@@ -28,3 +28,13 @@
     z-index: 1;
     color: #000000;
 }
+small{
+    display: inline-block;
+}
+.photo-profile{
+    width: 32px;
+    height: 32px;
+    margin-top: 5px;
+    margin-right: 5px;
+    border-radius: 3px;
+}

@@ -33,3 +33,11 @@ header{
 .navbar-nav{
     margin-left: 62px;
 }
+.nav-image{
+    width: 28px;
+    height: 28px;
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-right: 4px;
+    border-radius: 3px;
+}

@@ -14,32 +14,51 @@
         <h1 style="font-size: 21px">Edit Profile</h1>
         <hr class="mb-4">
         <p style="font-size: 21px">Public Information</p>
-        <form id="update">
-            <div class="col-6">
-                <input type="hidden" name="identifikasi[]" id="identifikasi" value="">
-                <div class="form-group">
-                    <h5 for="name">Display name</h5>
-                    <input type="text" class="form-control @error('name') is-invalid @enderror" id="name" name="name" value="{{old('name', $user->name) }}" autocomplete="off" required>
-                    @error('name')
-                        <div class="invalid-feedback">{{ $message }}</div>
-                    @enderror
-                </div>
-                <div class="form-group">
-                    <h5 for="location">Location</h5>
-                    <input type="text" class="form-control @error('location') is-invalid @enderror" id="location" name="location" value="{{old('location', $user->location) }}" autocomplete="off">
-                    @error('location')
-                        <div class="invalid-feedback">{{ $message }}</div>
-                    @enderror
-                </div>
-                <div class="form-group">
-                    <h5 for="title">Title</h5>
-                    <input type="text" class="form-control @error('title') is-invalid @enderror" id="title" name="title" value="{{old('title', $user->title) }}" autocomplete="off">
-                    @error('title')
-                        <div class="invalid-feedback">{{ $message }}</div>
-                    @enderror
+
+        <div class="row">
+            <div class="photo">
+                <img class="photo-profile" src="/uploads/images/{{ $user->photo }}">
+                <div class="dropdown">
+                    <button class="btn btn-secondary" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      Change picture
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <form action="/users/{{$user->id}}/photo" method="POST" enctype="multipart/form-data" style="margin-left: 10px;">
+                            @csrf
+                            <input type="file" name="image">
+                            <input type="submit" class="btn btn-primary btn-sm" value="Upload" style="margin-top: 5px;">
+                        </form>
+                    </div>
                 </div>
             </div>
-            <div class="col-8">
+
+            <div class="top-field">
+                <form id="update">
+                    <div class="form-group">
+                        <h5 for="name">Display name</h5>
+                        <input type="text" class="form-control @error('name') is-invalid @enderror" id="name" name="name" value="{{old('name', $user->name) }}" autocomplete="off" required>
+                        @error('name')
+                            <div class="invalid-feedback">{{ $message }}</div>
+                        @enderror
+                    </div>
+                    <div class="form-group">
+                        <h5 for="location">Location</h5>
+                        <input type="text" class="form-control @error('location') is-invalid @enderror" id="location" name="location" value="{{old('location', $user->location) }}" autocomplete="off">
+                        @error('location')
+                            <div class="invalid-feedback">{{ $message }}</div>
+                        @enderror
+                    </div>
+                    <div class="form-group">
+                        <h5 for="title">Title</h5>
+                        <input type="text" class="form-control @error('title') is-invalid @enderror" id="title" name="title" value="{{old('title', $user->title) }}" autocomplete="off">
+                        @error('title')
+                            <div class="invalid-feedback">{{ $message }}</div>
+                        @enderror
+                    </div>
+            </div>
+        </div>
+
+            <div class="col-9 pl-0">
                 <div class="form-group">
                     <h5 for="about_me">About Me</h5>
                     <textarea class="form-control @error('about_me') is-invalid @enderror" id="about_me" name="about_me" autocomplete="off" rows="8" cols="30">{{old('about_me', $user->about_me) }}</textarea>

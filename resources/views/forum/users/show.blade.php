@@ -12,8 +12,9 @@
             <a class="btn" href="{{ url("/users/$user->id/edit") }}">Edit profile</a>
         @endif
     </div>
-    <div class="myProfile row mt-5 ml-4 pl-5">
+    <div class="myProfile row mt-5 ml-2 pl-5">
         <div class="col-8">
+            <img class="photo-profile" src="/uploads/images/{{ $user->photo }}">
             <h4>{{$user->name}}</h4>
             @isset($user->title)
                 <p class="text-muted" style="font-size: 17px">{{$user->title}}</p>

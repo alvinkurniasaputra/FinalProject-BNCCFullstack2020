@@ -13,7 +13,10 @@
     </form>
     <div class="col-9" id="myDiv">
         @foreach ($user as $item)
-            <p class="col-3" style="display: inline-block"><a href="{{ url("/users/$item->id") }}">{{$item->name}}</a></p>
+            <p class="col-3" style="display: inline-block">
+                <img class="photo-profile" src="/uploads/images/{{ $item->photo }}">
+                <a href="{{ url("/users/$item->id") }}">{{$item->name}}</a>
+            </p>
         @endforeach
     </div>
 

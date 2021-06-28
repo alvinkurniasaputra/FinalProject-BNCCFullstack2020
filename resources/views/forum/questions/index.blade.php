@@ -24,8 +24,11 @@
                 <div class="col-11">
                     <a class="card-title mb-4" href="{{ url('/questions', ['questions' => $q->id] ) }}">{{$q->title}}</a>
                     <p class="card-text quecontent" >{{$q->content}}</p>
-                    <small class="card-text text-muted" style="display: block">asked {{$q->created_at->diffForHumans()}}</small>
-                    <a href="/users/{{$q->user->id}}">{{$q->user->name}}</a>
+                    <div class="user-info" style="float: right; margin-right: 25px;">
+                        <small class="card-text text-muted" style="display: block">asked {{$q->created_at->diffForHumans()}}</small>
+                        <img class="photo-profile" src="/uploads/images/{{ $q->user->photo }}">
+                        <a href="/users/{{$q->user->id}}">{{$q->user->name}}</a>
+                    </div>
                 </div>
             </div>
         </div>

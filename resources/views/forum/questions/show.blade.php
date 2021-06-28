@@ -39,6 +39,7 @@
             <div style="overflow: auto" class="mb-2">
                 <div class="user-info p-2" style="background-color: #E1ECF4; width:200px; float:right;">
                     <small class="card-text text-muted" style="display: block">asked {{$question->created_at->format('F j \'y')}} at {{$question->created_at->format('H:i')}}</small>
+                    <img class="photo-profile" src="/uploads/images/{{ $question->user->photo }}">
                     <a href="/users/{{$question->user->id}}">{{$question->user->name}}</a>
                 </div>
             </div>
@@ -91,6 +92,7 @@
                     <div class="mb-2" style="overflow: auto">
                         <div class="user-info p-2" style="width:200px; float:right;" >
                             <small class="card-text text-muted" style="display: block">answered {{$p->created_at->format('F j \'y')}} at {{$p->created_at->format('H:i')}}</small>
+                            <img class="photo-profile" src="/uploads/images/{{ $p->user->photo }}">
                             <a href="/users/{{$p->user->id}}">{{$p->user->name}}</a>
                         </div>
                     </div>

@@ -32,3 +32,27 @@ h5{
 .bi-check{
     color:green;
 }
+.photo-profile{
+    width: 164px;
+    height: 164px;
+    float: left;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+}
+.photo{
+    width: 200px;
+    margin-left :16px;
+}
+.top-field{
+    width: 400px;
+}
+.btn-secondary{
+    width: 164px;
+    border-top-left-radius: unset;
+    border-top-right-radius: unset;
+}
+.dropdown-menu form{
+    float: left;
+    display: inline;
+}
+
